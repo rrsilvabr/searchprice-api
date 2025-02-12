@@ -11,7 +11,7 @@ phases:
     post_build:
          commands:
             - cp ./Procfile ./build
-            - cp ./src/server/controller/testes/imagens ./build/server/controller/testes
+            - cp -r ./src/server/controller/testes/imagens ./build/server/controller/testes
             - echo Build completed on `date`
 artifacts:
     files:
