@@ -1,9 +1,18 @@
 version: 0.2
 phases:
+    install:
+        commands:
+            - echo Installing source NPM dependencies...
+            - npm i --save
     build:
         commands:
-            - npm i --save
+            - echo Build started on `date`
             - npm run build
+    post_build:
+         commands:
+            - cp ./Procfile ./build
+            - cp ./src/server/controller/testes/imagens ./build/server/controller/testes
+            - echo Build completed on `date`
 artifacts:
     files:
         - '**/*'
